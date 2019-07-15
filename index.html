@@ -17,42 +17,139 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <h1>Reading Progress Bar CSS Only</h1>
-    <p class="zoom-area"><b>CSS</b> indicator to display the current reading position (how much you have "read", depending on how far you have scrolled down an article). <b>Scroll me!</b></p>
-    <section class="example-post">
-      <div class="entry-content">
-        <h2>Example Post</h2>
-                    <p>Lately webmaster and web designer are obsessed about <a href="https://www.silocreativo.com/en/tag/ux/">User Experience</a> and how to improve it. Tasks such as reducing the website loading time or finding <a href="https://www.silocreativo.com/en/google-serif-font-combinations-ready-copy-use/">a good font combination</a> are always in the to-do list. However we are forgetting about focussing on the <strong>elements where the real contact between the user and the website happens: the forms.</strong></p>
-    <p>Designing pages and sections with contact forms properly is challenging because <strong>you have to guide your users through each field</strong> to get them filled correctly. Moreover, if the info added by the user doesn’t fit the field’s pattern, you should let the user know what he/she is doing wrong. And this has to be clear for all users, included non-tech visitors.</p>
-    <p>Fortunately, <a href="https://www.silocreativo.com/en/web-design-html5-structure-composition/">new HTML5 specs</a> for forms have helped to improve the validation before sending the form without using server-side requirements nor JavaScript. By default inputs type like email or tel (telephone) use a pattern that checks that the info filled is correct and forms can be submitted when the user clicks on the submit bottom.</p>
-    <p>The key questions are: Could we improve this behaviour getting a live check? Could we also get an extra info about how to fill out a form if we get stuck? Does this help get a better UX? Yes to all, and we will do it with <a href="https://www.silocreativo.com/en/tag/css/">CSS</a>.</p>
-    <h2>Knowing CSS pseudo-class and HTML elements and attributes to improve a form</h2>
-    <p>Let’s revise some <strong>CSS pseudo-class and HTML elements</strong> we are going to use in our demo. Some of them are very well-known but others have been added recently in the last CSS updates.</p>
-    <h3>input and textarea</h3>
-    <p><strong>The classics</strong>. They will define the fields the users are going to fill out. The typology of <code>input</code> is defined by the <code>type</code> attribute in the HTML, and this is important, as we said above, for custom HTML5 browser validation</p>
-    <h3>required</h3>
-    <p>This HTML attribute can be used with <code>input</code> and <code>textarea</code>. It indicates that the field should be filled out before the form is submitted. It is very useful to let user know that we need that information, for example the email or the phone number.</p>
-    <p>The required attribute is directly related with two pseudo-classes we can use through our CSS to know if the <code>input</code> is required or optional. They are <strong>:required</strong> y <strong>:optional</strong>, vary semantic as you can see.</p>
-    <h3>pattern</h3>
-    <p>Another HTML attribute to check the information added by users. In that case <strong>we can build our own pattern or use one of the patterns by default</strong>. It depends on the type attribute. For example, if we use the email type, it will looking for an email string (with @ in the middle and a valid domain extension such as .com, .org or whatever.) The same for tel or url. <a href="https://www.w3.org/TR/html/sec-forms.html#element-attrdef-input-type">Here</a> you have the complete list of <code>input</code> type attributes.</p>
-    <p>However, the power of this attribute is that we can create our own pattern, excluding numbers for instance or any character we want to avoid. The pattern attribute <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">requires a regular expression</a> in order to work properly.</p>
-    <h3>placeholder</h3>
-    <p>The most useful attribute in this collection for UX. <strong>It helps user to understand what kind of info we are looking for</strong>. It can also display an example data that will disappear when the user starts filling out the <code>input</code> (typing a character) and not when the <code>input</code> is <code>:focus</code>.</p>
-    <h3>::placeholder</h3>
-    <p>Pseudo-element related with above attribute. <strong>It helps us style the placeholder</strong>, so we can change the text colour or other font properties to let users know that this is an example and not a real text.</p>
-    <p>Browser compatibility is good enough, however, we can add some alternative prefixed rules for each browser: <code>::placeholder</code>, <code>::-moz-placeholder</code>, <code>::-webkit-input-placeholder</code> and <code>:-ms-input-placeholder</code>.</p>
-    <h3>:focus</h3>
-    <p>A basic pseudo-class that runs when the user is focusing an <code>input</code> or <code>textarea</code>. It is necessary that the user click on it or navigate with the keyboard to considerate the <code>input</code> as focused.</p>
-    <h3>:valid</h3>
-    <p>This pseudo-selector will let us know if the string added in the <code>input</code> is correct and check with the pattern we have set. So basically we can style the <code>input</code> if the info is correct.</p>
-    <h3>:invalid</h3>
-    <p>The opposite of valid. The question here is: What happens when no value is added to the <code>input</code>? Will it be <code>:valid</code> or <code>:invalid</code>? Well, the answers in that case depends on the <code>required</code> attribute. If it exists for that <code>input</code> and no value has been added, then is an <code>:invalid</code> element. Otherwise it will be <code>:valid</code>.</p>
-    <h3>:placeholder-shown</h3>
-    <p>The new kid in town. It is still in the draft of CSS level 4 specification, but the compatibility with browsers <a href="http://caniuse.com/#feat=css-placeholder-shown">is quite reliable</a> at this moment (except on IE and Edge).</p>
-    <p>This is a pseudo-class that <strong>runs only when placeholder is being shown</strong>. It means that it will be enabled when the <code>input</code> is not focused and when it is focused but the user has not typed any character yet.</p>
-    <p>So the possibilities here are thrilled. Now, we can know if users get stuck in one of the inputs. For example, if an user has clicked on an <code>input</code> but doesn’t know what to write, we can show a notice after 5 seconds that helps the user complete it, and all of this <a href="https://www.silocreativo.com/en/creative-examples-404-error-css/">only with CSS</a>!</p>
-    <p>Another possibility: the user is filling the <code>input</code>, but 30 second has passed and the input is still invalid. Maybe the user has not understand what pattern we are looking for. Time to help with a message or something similar!</p>
-    
+   
+  
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbarCol">
+    <a class="navbar-brand" id="logo" href="index.html">X.L.</a>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav navbar-nav ml-auto2 hide" id="navbarNav2">
+        <li class="nav-item">
+          <a class="nav-link" href="project3.html">previous</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="topFunction()" id="myBtn" title="Go to top">top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="project2.html">next</a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">Über mich</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="impressum.html">Impressum</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+
+
+
+  <div class="jumbotron background1">
+    <div class="container-fluid projTitelBild">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 projektTitel fadeIn">
+          <h1>novo</h1>
+          <hr>
+          <h4 class="text">
+            Ein personaliserter Routenplaner für </br>
+            E-Bike und Pedelec Fahrer mit Reichweitenanzeige.
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="break"></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 projektTexthaufen fadeIn delay-400">
+          <h3>Einleitung</h3>
+
+          <p>
+            Dieses Projekt entstand in Kooperation mit Studenten aus dem vierten Semester Produktgestaltung. Das Thema
+            für die Produktgestalter in diesem Semester war eine E-Bike Ladestation. Die Aufgabe für das Internet der
+            Dinge Team war die technische Realisierung beziehungsweise Prototyping einzelner Komponenten.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 projektTexthaufen">
+          <h3>Research</h3>
+          <p>
+            Im Anfangsstadium bestand die Idee darin herauszufinden wo die Ladestationen benötigt werden. Nach einigen
+            Interviews an einer stark befahrenen Fahrradstrecke in Stuttgart wurde jedoch klar, dass die großen
+            Painpoints der E-Bike Fahrer im Alltag nicht die fehlende Lademöglichkeiten waren, sondern die schlechte
+            Infrastruktur für Fahrradfahrer.
+
+            Der Freizeit E-Bike Fahrer hingegen hat das Problem die abenteuerlichen Routen mit dem Akku zu meistern. Die
+            Recherche zeigt, die Route und der Fahrstil beeinflussen den Akku enorm. Um mit dem Akku längere Routen als
+            40 km fahren zu können, muss der Nutzer vorher seine Route wählen, sodass er in der ersten Hälfte die
+            meisten Erhöhungen überwindet und in der zweiten Hälfte eher abwärts fährt falls kein Akku mehr übrig
+            bleibt.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 projektTexthaufen">
+          <h3>Synthesis</h3>
+          <p>
+            Alle Informationen aus den Interviews wurden zusammengefasst und ausgewertet.
+            So bekommt man ein klares Bild der größten Painpoints und kann gezielte die „How might we“ Fragen für die
+            Ideation-Phase im nächsten Schritt bilden, wie zum Beispiel:
+
+            Wie könnte die Sicherheit für E-Bike Fahrer verbessert werden?
+
+            Wie könnte die Infrastruktur für E-Bike Fahrer verbessert werden?
+
+            Wie könnte man den Nutzer unterstützen spontan abenteuerliche Radtouren zu meistern?
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 projektTexthaufen">
+          <h3>Ideation</h3>
+          <p>
+            Die Daten-Sammlung hat das Potential die Infrastruktur und somit auch die Sicherheit zu verbessern, jedoch
+            hat der Nutzer erst in der Zukunft einen Nutzen davon.
+
+            Freizeit E-Biker profitieren sofort beim Konzept der Routenvorschläge.
+
+            Über die Analogiebildung kommt man zu verwandten Situationen wie dem Smartphone im Alltag.</br>
+            Die Ladeanschlüsse werden immer mehr vereinheitlicht, dies ermöglicht dem Smartphone User das einfach Aufladen
+            unterwegs.
+            Einige Shopping Stores bieten ihren Kunden Lademöglichkeiten für ihre Smartphones an, des Weiteren gibt es zahlreiche Apps die dem Nutzer bei seinem
+            Akku-Management helfen.
+          </p>
+        </div>
+      </div>
+    </div>
                 </div>
     </section><!-- .example-post -->
     <div class="link-container">
