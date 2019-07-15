@@ -1,14 +1,8 @@
 .example-post {
       /* background-color: #242e37; */
-      color: white;
-      transition: background-image 0.5s linear;
-      background-color: #0F1217;
-      margin: 0;
-      font-size: 1em;
-      -webkit-font-smoothing: antialiased;
+       position: relative;
+   
   }
-
-
 
   .example-post p {
     font-size: 18px;
