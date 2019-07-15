@@ -16,7 +16,6 @@
       content: "";
       display: block;
    background: linear-gradient(to right top, #CDDC39 0%, #03A9F4 50%, #e6f0f5 50%);
-       background:red;
 
       height: calc(100% - 100vh + 6px);
       width: 100%;
